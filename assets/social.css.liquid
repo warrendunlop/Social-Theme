@@ -1,6 +1,7 @@
 /*
 
 Title: Social Theme For Shopify
+Version: 1.2 (version history at http://bit.ly/on3Ajq)
 Author: Warren Dunlop
 License:
 
@@ -207,10 +208,11 @@ input { background:{{ settings.search_bg_color }}; font: {{ settings.regular_fon
 /* Collection */
 #collection-description { padding-bottom:60px;}
 
+.product { float:left; padding-right:114px; width:250px}
+.product.last { padding-right:0px;}
+
 .gallery-image-wrapper { background: {{ settings.product_image_bg_color }}; height:250px; width:250px; display: table-cell; text-align: center; vertical-align: middle; overflow:hidden;}
 .gallery-image-wrapper img { max-height:250px; max-width:250px; margin-bottom:-2px;}
-
-.col1, .col2 { padding-right:114px;}
 
 .gallery-title a { color:{{ settings.accent_color }} !important; font-size: 13px; line-height: 2em; padding: 7px 6px 3px 0; letter-spacing: -.1px; font-weight:bold; display:block; line-height: 1.5em;}
 .gallery-price { color:{{ settings.secondary_color }}; padding-bottom:3px;}

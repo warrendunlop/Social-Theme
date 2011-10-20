@@ -12,6 +12,24 @@ function updateSummary(url, elem, type){
     fbgetCount(url, elem, type, callback);
 };
 
+function updateAllArticleCounts(selector) {
+    $(selector).each(function(i, el){
+        var link = $(el).attr('data-url');
+        var title = $(el).attr('data-title');
+        updateSummary(link,title,'comments');
+    });
+};
+
+function updateAllProductCounts(selector) {
+    $(selector).each(function(i, el){
+        var link = $(el).attr('data-url');
+        var likeHandle = "like-"+$(el).attr('data-handle');
+        var commentHandle = "comment-"+$(el).attr('data-handle');       
+        updateSummary(link,likeHandle,'likes');
+        updateSummary(link,commentHandle,'comments');
+    });
+};
+
 // update facebook counts
 function updateCount(url, elem, type) {
     var callback = function(count) {
@@ -42,7 +60,13 @@ function commentCount(response, url) {
 };
 
 function likeCount(response) {
-    return parseInt(response[0]['total_count'], 10);
+    var count;
+    try {
+        count = parseInt(response[0]['total_count'], 10);
+    } catch(e) {
+        count = 0;
+    }
+    return count;
 };
 
 
@@ -199,6 +223,12 @@ function infiniteScroll(el){
                 var filteredData = $(data).find(el);
                 filteredData.insertBefore( $("#end-of-infinity") );
                 pInfScrLoading = false;
+                
+                // load tweet buttons, like buttons, and comment/like counters after AJAX
+                try{ updateAllProductCounts(el); }catch(ex){}
+                try{ updateAllArticleCounts(el); }catch(ex){}
+                try{ twttr.widgets.load(); }catch(ex){}
+                try{ FB.XFBML.parse(); }catch(ex){}
               },
               dataType: "html"
             });
@@ -206,7 +236,7 @@ function infiniteScroll(el){
         }
       }
 
-      $(document).ready(function () {
+      $(document).ready(function(){
         $(window).scroll(function(){
           $.doTimeout( 'scroll', pInfScrDelay, pInfScrExecute);
             if( $(document).height() - 800 > $(document).scrollTop() + $(window).height() ) {

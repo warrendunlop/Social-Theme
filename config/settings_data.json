@@ -136,9 +136,9 @@
      "txt_friend": "Friend Activity",
      "icon_color": "none",
      "regular_font": "Droid Sans",
-     "blog_comments_enabled": true,
      "txt_sale": "Sale",
-     "accent_color_dark": "#eeeeee",
+     "blog_comments_enabled": true,
+     "overlay_opacity": "0.9",
      "fb_colorscheme": "dark",
-     "overlay_opacity": "0.9"}},
+     "accent_color_dark": "#eeeeee"}},
  "current": "Social"}

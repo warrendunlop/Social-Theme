@@ -1,8 +1,8 @@
 <a href="{{ shop.url }}/blogs/{{blog.handle}}.xml" class="rss-icon feed"></a>
 
-{% paginate blog.articles by 20 %}
+{% paginate blog.articles by settings.articles_per_page %}
   {% for article in blog.articles  %}
-    <div class="article">
+    <div class="article" id="article-{{ forloop.index | plus:paginate.current_offset }}" data-url="{{shop.url}}{{article.url}}" data-title="{{ article.title | handleize }}">
       
       <h2 class="pb0"><a href="{{ article.url }}">{{ article.title }}</a></h2>
       
@@ -30,7 +30,6 @@
           {% if settings.blog_comments_enabled %}
           <li class="comment-count">
             <a class="counter-box" href="{{shop.url}}{{article.url}}#social"><span id="{{ article.title | handleize }}" class="comment-icon">Comment</span></a>
-            <script type="text/javascript">updateSummary("{{shop.url}}{{article.url}}", "{{ article.title | handleize }}", 'comments');</script>
           </li>
           {% endif %}
           
@@ -54,14 +53,21 @@
     </div><!-- article -->
   {% endfor %}
   
-  <div id="pagination">
-    {{ paginate | default_pagination }}
+{% if paginate.next %}
+  <div class="article last" id="more" style="text-align:center;margin-bottom:0;height:20px;width:100%;">
+    <p><a href="{{ paginate.next.url }}">More &gt;</a></p>
   </div>
+{% endif %}
+
+<div id="end-of-infinity"></div>
 {% endpaginate %}
 
 <script type="text/javascript">
+infiniteScroll('.article');
 $(document).ready(function() {
   $(".datetime span").prettyDate();
   setInterval(function(){ $(".datetime span").prettyDate(); }, 5000);
+  
+  updateAllArticleCounts('div.article');
 });
 </script>

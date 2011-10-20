@@ -256,7 +256,7 @@
   
   <table>
     <tr>        
-      <th><label for="fb_adminid">Admin ID(s) <small class="grey">*Important</small></label></th>
+      <th><label for="fb_adminid">Admin ID(s) <small class="hint">*Important</small></label></th>
       <td><input id="fb_adminid" name="fb_adminid" /></td>
     </tr>
     <tr>
@@ -297,7 +297,7 @@
       </td>
     </tr>
     <tr>        
-      <th><label for="fb_pageurl">Page URL<br/><small class="grey">Ex: facebook.com/shopify<br/>Only required if using the 'like box' on the frontpage</small></label></th>
+      <th><label for="fb_pageurl">Page URL<br/><small class="hint">Ex: facebook.com/shopify<br/>Only required if using the 'like box' on the frontpage</small></label></th>
       <td><input id="fb_pageurl" name="fb_pageurl" /></td>
     </tr>
     <tr>
@@ -556,6 +556,18 @@
           <option value="top" selected="selected">Above Buy Now</option>
           <option value="bottom">Below Buy Now</option>
         </select>
+      </td>
+    </tr>
+    <tr>
+      <th><label for="products_per_page">Products per Page<br/><small class="hint">(multiples of 3)</small></label></th>
+      <td>
+         <input type="text" size="2" id="products_per_page" name="products_per_page" value="18" />
+      </td>
+    </tr>
+    <tr>
+      <th><label for="articles_per_page">Blog Articles per Page</label></th>
+      <td>
+         <input type="text" size="2" id="articles_per_page" name="articles_per_page" value="5" />
       </td>
     </tr>
   </table>
