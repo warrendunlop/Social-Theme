@@ -37,6 +37,7 @@ THE SOFTWARE.
 
 Version History:
 
+1.3: Bug Fixes (for activity feed and other Facebook stuff)
 1.2: Infinite Scrolling for products and blogs (first commit to git)
 1.1: Added Full Translation. Collections List Page. Google +1 button. Bug Fixes.
 1.0: Initial: Base design, google web fonts, all Facebook and Twitter functionality, two presets (trig and social)

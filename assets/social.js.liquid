@@ -229,6 +229,7 @@ function infiniteScroll(el){
                 try{ updateAllArticleCounts(el); }catch(ex){}
                 try{ twttr.widgets.load(); }catch(ex){}
                 try{ FB.XFBML.parse(); }catch(ex){}
+                try{ collectionPage(); }catch(ex){}
               },
               dataType: "html"
             });
