@@ -1,7 +1,7 @@
 /*
 
 Title: Social Theme For Shopify
-Version: 1.3 (version history at https://github.com/warrendunlop/Social-Theme/blob/master/README)
+Version: 1.4 (version history at http://bit.ly/on3Ajq)
 Author: Warren Dunlop
 License:
 
@@ -58,7 +58,6 @@ top center {{ settings.bg_repeat }};}
 
 /* Global Links & Text */
 a:active { outline: none;}
-input:focus { outline: none;}
 
 #layout a, #footer a, #header a { color: {{ settings.accent_color }}; text-decoration: none;}
 #layout a:hover, #footer a:hover, #header a:hover { text-decoration: underline;}
@@ -119,7 +118,9 @@ ol li { list-style-type: decimal; list-style-position: inside;}
 
 #layout .counter-box:hover { text-decoration:none;}
 
-input { background:{{ settings.search_bg_color }}; font: {{ settings.regular_font_size }} {{ settings.regular_font }},"lucida grande",tahoma,verdana,arial,sans-serif;}
+input, textarea { background:{{ settings.search_bg_color }}; font: {{ settings.regular_font_size }} {{ settings.regular_font }},"lucida grande",tahoma,verdana,arial,sans-serif; padding: 5px 7px; border: 1px solid {{ settings.border_color }};
+border-radius: 3px; -webkit-border-radius: 3px; -moz-border-radius: 3px;}
+input:focus, textarea:focus { outline: none;}
 
 .clearfix:after { content:"."; display:block; height:0; clear:both; visibility:hidden;}
 .clearfix {display:inline-block;}
@@ -179,10 +180,10 @@ input { background:{{ settings.search_bg_color }}; font: {{ settings.regular_fon
 .idleField { color: #aaa !important;}
 
 #search-box #q { width: 150px; height:17px; padding: 2px 4px 2px 8px; background:{{ settings.search_bg_color }}; color: {{ settings.text_color }}; border-width: 1px 0 1px 1px; border-style: solid; border-color: {{ settings.border_color }} transparent {{ settings.border_color }} {{ settings.border_color }}; float: right;
--webkit-border-top-left-radius:3px; -moz-border-radius-topleft:3px; border-top-left-radius:3px; -webkit-border-bottom-left-radius:3px; -moz-border-radius-bottomleft:3px; border-bottom-left-radius:3px; }
+-webkit-border-radius:3px 0 0 3px; -moz-border-radius:3px 0 0 3px; border-radius:3px 0 0 3px;}
 
 #search-box input[type="image"] { height:13px; width:13px; padding:4px 6px; background:{{ settings.search_bg_color }}; border-width: 1px 1px 1px 0; border-style: solid; border-color: {{ settings.border_color }} {{ settings.border_color }} {{ settings.border_color }} transparent;
--webkit-border-top-right-radius:3px; -moz-border-radius-topright:3px; border-top-right-radius:3px; -webkit-border-bottom-right-radius:3px; -moz-border-radius-bottomright:3px; border-bottom-right-radius:3px;}
+-webkit-border-radius:0 3px 3px 0; -moz-border-radius:0 3px 3px 0; border-radius:0 3px 3px 0;}
 
 
 /* Cycle */
@@ -371,6 +372,41 @@ input { background:{{ settings.search_bg_color }}; font: {{ settings.regular_fon
 #empty { text-align: center; padding-bottom: 25px;}
 #empty h1 { padding: 10px 0 16px; font-size: 27px;}
 #empty p { font-size:13px;}
+
+
+/* Contact Form */
+.contact-form li { margin: 0 0 8px 0 !important;}
+.contact-form li.type-submit { margin: 0 0 0 90px !important;}
+form label { display: block; min-width: 150px; float: left; line-height: 25px;}
+.contact-form textarea { width: 400px; height: 100px;}
+
+
+/* Account Forms */
+.large_form { padding:4px 0;}
+#customer_password, #forgot_password { float:left;}
+#forgot_password { margin-left: 8px; line-height: 25px;}
+.action_bottom { padding-top:30px;}
+form .btn { background:#f7f7f7; cursor:pointer;}
+form .btn:hover { border:1px solid #ccc; }
+#customer_decline { border:none; padding:0; color: {{ settings.accent_color }}; text-decoration: none; cursor:pointer;}
+#customer_decline:hover { text-decoration: underline;}
+#return_to_store { display:none;}
+#customer_sidebar { width: 300px; float: left;}
+#customer_sidebar, .customer_address { background: {{ settings.active_bg_color }}; border-bottom:1px solid {{ settings.active_border_color }}; padding: 20px; margin-right: 20px;
+border-radius: 6px; -webkit-border-radius: 6px; -moz-border-radius: 6px; margin-bottom:30px;}
+#customer_orders { float: right; text-align: left; width: 620px; padding-top: 10px;}
+#customer_detail h5 { font-size: 14px; background: rgba(0,0,0,.03); padding: 12px 20px 25px 20px; margin: -20px -20px 17px -20px; border-radius: 6px 6px 0 0;}
+#customer_detail .email { color: #999; font-family: georgia; font-style: italic; padding: 10px 20px; margin: -53px -20px 20px -20px;}
+#customer_detail .address p, .view_address p { padding-bottom:0;}
+#view_address { position: relative; top: 20px; line-height: 20px; background: rgba(0,0,0,.03); display: block; margin: 0 -20px 0px -20px; border-radius: 0 0 6px 6px; padding: 4px 20px;}
+.action_return, .action_add { padding-bottom:30px;}
+.default_address { color:#999; font-style:italic;}
+.customer_address h4 { font-size: 14px; padding: 2px 0 5px 0; }
+.action_delete { border-left: 1px solid #DDD; padding-left: 6px;}
+.address_actions { padding:0; margin-bottom:10px;}
+.action_add::before { content:'[+] '; color:#999;}
+.action_return::before { content:'« '; color:#999;}
+.customer_address_table td { padding:4px 0;}
 
 
 /* Facebook Plugins */

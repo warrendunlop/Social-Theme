@@ -69,7 +69,8 @@
      "blog_comments_enabled": true,
      "overlay_opacity": "0.3",
      "fb_colorscheme": "light",
-     "accent_color_dark": "#071125"},
+     "accent_color_dark": "#071125",
+     "customer_layout": "theme"},
    "trig":
     {"txt_update": "Update",
      "txt_add_to_cart": "Add to Cart",
