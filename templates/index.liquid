@@ -99,11 +99,11 @@
 {% if settings.twitterID %}
 <div id="twitter" class="left">
   <a class="twitter-icon" href="http://www.twitter.com/{{ settings.twitterID }}" target="_blank"></a>
-  <h3 class="pb0"><a href="http://www.twitter.com/{{ settings.twitterID }}" target="_blank">Twitter</a></h3>
+  <h3 class="pb0"><a href="http://www.twitter.com/{{ settings.twitterID }}" target="_blank">@{{ settings.twitterID }}</a></h3>
   <hr class="hr_underline"/>
   
   <div id="tweets" class="ml0">
-    <p><img src="{{ 'loading.gif' | asset_url }}" style="vertical-align:middle;"/> &nbsp; {{ settings.txt_loading_tweets }}</p>
+    <div class='tweet query'></div>
   </div>
 </div>
 {% endif %}
@@ -131,4 +131,4 @@
 </div>
 
 
-<script type="text/javascript"> $(document).ready(function(){ indexPage('{{ settings.twitterID }}'); }); </script>
+<script type="text/javascript"> $(document).ready(function(){ indexPage(); }); </script>

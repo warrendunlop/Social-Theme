@@ -44,7 +44,7 @@ function fbgetCount(url, elem, type, callback) {
   if (type == 'comments') {
       var query = "comments/?ids=" + url;
   } else {
-      var query = { method: 'fql.query', query: 'SELECT  share_count, total_count from link_stat  where  url="' + url + '"' }
+      var query = { method: 'fql.query', query: 'SELECT  share_count, total_count from link_stat  where  url="' + url + '"' };
   }
   
   FB.api(query, function(response) {
@@ -54,8 +54,8 @@ function fbgetCount(url, elem, type, callback) {
 }
 
 function commentCount(response, url) {
-    if (response[url] != undefined && response[url].data != undefined) {
-      return response[url].data.length;
+    if (response[url] != undefined && response[url].comments != undefined) {
+      return response[url].comments.data.length;
     }
 };
 
@@ -140,16 +140,6 @@ function indexPage(twitterID){
         $('#cycle').cycle('pause');
         $('#pauseButton').addClass('paused');
      });
-  });
-  
-  // twitter feed
-  getTwitters('tweets', { 
-    id: twitterID, 
-    count: 3, 
-    enableLinks: false, 
-    ignoreReplies: true, 
-    clearContents: true,
-    template: '<p class="feed-para"/><strong><a href="http://twitter.com/%user_screen_name%/statuses/%id_str%/" target="_blank">@%user_screen_name%</a></strong><br/> "%text%"</p><p class="datetime"><a class="twitter-date-link" href="http://twitter.com/%user_screen_name%/statuses/%id_str%/" target="_blank">%time%</a> &#183; <a href="http://twitter.com/?status=RT+@%user_screen_name%: %text%" target="_blank">Retweet</a></p>'
   });
 }
 
